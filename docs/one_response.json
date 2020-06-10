@@ -1,0 +1,190 @@
+{
+  "code": 200, 
+  "interface_version": "2.0.0", 
+  "messages": [], 
+  "payload": {
+    "features": [
+      {
+        "3.7 billion year": "ENT", 
+        "500 million year": "ENT", 
+        "< 500 million year": "NOUN_CHUNK", 
+        "> 3.7 billion year": "NOUN_CHUNK", 
+        "Amazonian": "PROPN", 
+        "Earth": "PROPN", 
+        "Mariner": "PROPN", 
+        "Mariner 9 mission": "NOUN_CHUNK", 
+        "Mars": "PROPN", 
+        "Mars.[2": "PROPN", 
+        "Noachian": "PROPN", 
+        "activity": "NOUN", 
+        "age": "NOUN", 
+        "evolution": "NOUN", 
+        "extensive lava flow": "NOUN_CHUNK", 
+        "feature": "NOUN", 
+        "flow": "NOUN", 
+        "geologic evolution": "NOUN_CHUNK", 
+        "history,[5": "PROPN", 
+        "igneous rock": "NOUN_CHUNK", 
+        "large , differentiated planet": "NOUN_CHUNK", 
+        "large know volcano": "NOUN_CHUNK", 
+        "large portion": "NOUN_CHUNK", 
+        "late Amazonian": "NOUN_CHUNK", 
+        "lava": "NOUN", 
+        "magmatic process": "NOUN_CHUNK", 
+        "martian": "ENT", 
+        "martian surface": "NOUN_CHUNK", 
+        "materials.[8": "PROPN", 
+        "mineral": "NOUN", 
+        "mission": "NOUN", 
+        "name": "NOUN", 
+        "plain": "NOUN", 
+        "planet": "NOUN", 
+        "portion": "NOUN", 
+        "process": "NOUN", 
+        "rock": "NOUN", 
+        "role": "NOUN", 
+        "scientist": "NOUN", 
+        "significant role": "NOUN_CHUNK", 
+        "similar chondritic materials.[8": "NOUN_CHUNK", 
+        "solar system.[3][4": "NOUN_CHUNK", 
+        "surface": "NOUN", 
+        "system.[3][4": "NOUN", 
+        "today.[6][7": "PROPN", 
+        "vast lava plain": "NOUN_CHUNK", 
+        "volcanic activity": "NOUN_CHUNK", 
+        "volcanic feature": "NOUN_CHUNK", 
+        "volcanism": "NOUN", 
+        "volcano": "NOUN", 
+        "year": "NOUN"
+      }
+    ], 
+    "probability_threshold": 0.5, 
+    "request_id": "example_id10", 
+    "sti_keywords": [
+      [
+        {
+          "keyword": "lava", 
+          "probability": 0.988079309463501, 
+          "unstemmed": "LAVA"
+        }, 
+        {
+          "keyword": "volcanology", 
+          "probability": 0.9851651191711426, 
+          "unstemmed": "VOLCANOLOGY"
+        }, 
+        {
+          "keyword": "volcano", 
+          "probability": 0.9818959832191467, 
+          "unstemmed": "VOLCANOES"
+        }, 
+        {
+          "keyword": "mars surface", 
+          "probability": 0.8633611798286438, 
+          "unstemmed": "MARS SURFACE"
+        }, 
+        {
+          "keyword": "planetary evolution", 
+          "probability": 0.8472112417221069, 
+          "unstemmed": "PLANETARY EVOLUTION"
+        }, 
+        {
+          "keyword": "igneous rock", 
+          "probability": 0.8400911092758179, 
+          "unstemmed": "IGNEOUS ROCKS"
+        }, 
+        {
+          "keyword": "planetary geology", 
+          "probability": 0.8080313205718994, 
+          "unstemmed": "PLANETARY GEOLOGY"
+        }, 
+        {
+          "keyword": "mars volcanoe", 
+          "probability": 0.7860469818115234, 
+          "unstemmed": "MARS VOLCANOES"
+        }, 
+        {
+          "keyword": "rock", 
+          "probability": 0.7769719362258911, 
+          "unstemmed": "ROCKS"
+        }, 
+        {
+          "keyword": "geochronology", 
+          "probability": 0.672389805316925, 
+          "unstemmed": "GEOCHRONOLOGY"
+        }, 
+        {
+          "keyword": "planetary surface", 
+          "probability": 0.6425392627716064, 
+          "unstemmed": "PLANETARY SURFACES"
+        }, 
+        {
+          "keyword": "mineral", 
+          "probability": 0.5222469568252563, 
+          "unstemmed": "MINERALS"
+        }
+      ]
+    ], 
+    "topic_probabilities": [
+      [
+        {
+          "keyword": "space science", 
+          "probability": 0.9478434554989881, 
+          "unstemmed": "space sciences"
+        }, 
+        {
+          "keyword": "geoscience", 
+          "probability": 0.3247275011723163, 
+          "unstemmed": "geosciences"
+        }, 
+        {
+          "keyword": "life science", 
+          "probability": 0.09660761692405866, 
+          "unstemmed": "life sciences"
+        }, 
+        {
+          "keyword": "astronautic", 
+          "probability": 0.07529697551685584, 
+          "unstemmed": "astronautics"
+        }, 
+        {
+          "keyword": "general", 
+          "probability": 0.0257089739623935, 
+          "unstemmed": "general"
+        }, 
+        {
+          "keyword": "chemistry and material", 
+          "probability": 0.014512189462108511, 
+          "unstemmed": "chemistry and materials"
+        }, 
+        {
+          "keyword": "aeronautic", 
+          "probability": 0.011811348467138511, 
+          "unstemmed": "aeronautics"
+        }, 
+        {
+          "keyword": "engineering", 
+          "probability": 0.01105199628144047, 
+          "unstemmed": "engineering"
+        }, 
+        {
+          "keyword": "social and information science", 
+          "probability": 0.010935423720128255, 
+          "unstemmed": "social and information sciences"
+        }, 
+        {
+          "keyword": "mathematical and computer science", 
+          "probability": 0.006348297628701306, 
+          "unstemmed": "mathematical and computer sciences"
+        }, 
+        {
+          "keyword": "physic", 
+          "probability": 0.0052230788076608765, 
+          "unstemmed": "physics"
+        }
+      ]
+    ], 
+    "topic_threshold": 0.9
+  }, 
+  "service_version": "unspecified", 
+  "status": "okay"
+}

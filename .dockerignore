@@ -1,0 +1,12 @@
+notebook/*
+data/*
+models/*
+scratch/*
+bert_models/*
+__pycache__/*
+docs/*
+new_data/*
+data2/*
+in_data/*
+out_data/*
+venv/*

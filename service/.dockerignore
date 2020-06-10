@@ -1,0 +1,2 @@
+config/*
+!config/default_config.py

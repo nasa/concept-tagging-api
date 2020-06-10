@@ -1,0 +1,139 @@
+h1 {
+    padding: 0px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:bold
+}
+
+h2 {
+    padding: 0px 120px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.returnBox{
+    padding: 0px 0px;
+}
+
+.returnBox h2{
+    padding: 0px 0px;
+    margin: 0px 130px 0px 30px;
+}
+
+.background h2 {
+    margin: 0px 130px 0px 150px;
+    padding: 0px 0px 0px 0px;
+}
+
+p {
+    padding: 5px 150px;
+    font-family: 'Mukta', sans-serif;
+}
+
+#return {
+    margin: 0px 0px 10px 0px;
+}
+
+.clientBox p {
+    margin: 0px 0px;
+}
+
+textarea {
+    font-size: 12px;
+    width: 95%;
+    height: 60%;
+}
+
+ul {
+    padding: 1px 165px;
+    font-family: 'Mukta', sans-serif;
+}
+
+p.side {
+    padding: 10px 50px 0px 150px;
+    display: inline-block;
+}
+
+iframe {
+    background-color: #F5F5F5;
+}
+
+div.background {
+    overflow: auto;
+    background-color: #f9f7f4;
+    padding: 20px 0px;
+    width: 100%;
+    height: 100%;
+}
+
+div.clientBox {
+    background-color: #f9f7f4;
+    float: left;
+    width: 50%;
+}
+
+div.clientBoxR {
+    background-color: #f9f7f4;
+    float: left;
+    width: 50%;
+}
+
+
+div.return {
+    /*margin: 2px 0px 0px 2px;*/
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: #6c6c6c;
+    margin: 0px 30px 0px 0px;
+    overflow-y: scroll;
+    width: 85%;
+    height: 500px;
+    background-color: #FFF;
+}
+/*height: 500px;*/
+
+div#request {
+    margin: 0px 0px 10px 150px;
+    padding: 1px 5px;
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: #6c6c6c;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 75%;
+    height: 50px;
+    background-color: #F5F5F5;
+}
+
+img#loading {
+    display: none;
+}
+
+#version {
+    font-family: "Montserrat", sans-serif;
+    color: grey;
+    font-size: 20px;
+
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px 130px 18px 150px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}

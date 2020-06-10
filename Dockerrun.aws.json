@@ -1,0 +1,18 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "STI_tagger_v5_1"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 5000,
+      "HostPort": 5000
+    }
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/var/app/current/models/10_23_2019",
+      "ContainerDirectory": "/home/service/models/experiment"
+    }
+  ]
+}

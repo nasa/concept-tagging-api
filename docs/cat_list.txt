@@ -1,0 +1,11 @@
+astronautics
+life sciences
+geosciences
+social and information sciences
+mathematical and computer sciences
+space sciences
+general
+physics
+engineering
+chemistry and materials
+aeronautics

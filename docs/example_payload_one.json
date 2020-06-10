@@ -1,0 +1,6 @@
+{
+    "text": "Volcanic activity, or volcanism, has played a significant role in the geologic evolution of Mars.[2] Scientists have known since the Mariner 9 mission in 1972 that volcanic features cover large portions of the Martian surface. These features include extensive lava flows, vast lava plains, and the largest known volcanoes in the Solar System.[3][4] Martian volcanic features range in age from Noachian (>3.7 billion years) to late Amazonian (< 500 million years), indicating that the planet has been volcanically active throughout its history,[5] and some speculate it probably still is so today.[6][7] Both Earth and Mars are large, differentiated planets built from similar chondritic materials.[8] Many of the same magmatic processes that occur on Earth also occurred on Mars, and both planets are similar enough compositionally that the same names can be applied to their igneous rocks and minerals.",
+    "probability_threshold":"0.5",
+    "topic_threshold":"0.9", 
+    "request_id":"example_id10"
+}

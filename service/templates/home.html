@@ -1,0 +1,125 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title>NASA/OCIO STI and PMC Concept Tagging Service</title>
+    <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script>
+        var page_url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    </script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <link id='style' rel="stylesheet" href="static/style/style.css">
+	<script>document.getElementById("style").href = page_url + "static/style/style.css"</script>
+<script>
+var methodname = "{{ methodname }}/";
+var url = page_url + methodname;
+
+$( document ).ready(function() {
+$("#txt").val("Volcanic activity, or volcanism, has played a significant role in the geologic evolution of Mars.[2] Scientists have known since the Mariner 9 mission in 1972 that volcanic features cover large portions of the Martian surface. These features include extensive lava flows, vast lava plains, and the largest known volcanoes in the Solar System.[3][4] Martian volcanic features range in age from Noachian (>3.7 billion years) to late Amazonian (< 500 million years), indicating that the planet has been volcanically active throughout its history,[5] and some speculate it probably still is so today.[6][7] Both Earth and Mars are large, differentiated planets built from similar chondritic materials.[8] Many of the same magmatic processes that occur on Earth also occurred on Mars, and both planets are similar enough compositionally that the same names can be applied to their igneous rocks and minerals.");
+$("#probability").val(0.5);
+$("#topic_threshold").val(1);
+$("#request_id").val("0");
+});
+
+function doit() {
+  $("#loading").show()
+  setTimeout(function(){    }, 2000);
+  var txt = $("#txt").val();
+  var proba = $("#probability").val();
+  var request_id = $("#request_id").val();
+  var topic_threshold = $("#topic_threshold").val();
+  var return_data = {"text": txt, "probability_threshold": proba, "topic_threshold": topic_threshold, "request_id": request_id};
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    contentType: "application/json",
+    data: JSON.stringify(return_data),
+    success: function(result) {
+      console.log(result);
+      $("#returnData").text(JSON.stringify(result, undefined, 2));
+      $("#loading").hide();
+    }
+  });
+}
+
+</script>
+</head><body>
+
+<h1>
+    <img src="static/media/NASA_logo.png" alt="NASA logo" width="60">
+    &emsp;OCIO STI Concept Tagging Service <span id="version">(version: {{ version }})</span>
+</h1>
+
+<button class="accordion" title="Selecting this button reveals a more in-depth description of this service.">Description</button>
+<div class="panel">
+    <p>This service contains a single endpoint, &quot;<i>{{ root }}/{{ methodname }}/</i>&quot;, which may be used to extract concepts from passed text. The models which support this API were trained on over 3.5 million documents from NASA Scientific and Technical Information (STI) papers.</p>
+    <ul>
+        <li><a href="https://developer.nasa.gov/DataSquad/classifier_scripts">The code for creating these models</a></li>
+        <li><a href="https://developer.nasa.gov/DataSquad/sti-service-compose/tree/v{{ version }}">Documentation and the source code for this API</a></li>
+        <li><a href="https://developer.nasa.gov/DataSquad/sti-service-compose/releases/tag/v{{ version }}">Release notes for this version</a></li>
+    </ul>
+    <p>
+        You can access the endpoint using the interface below or by using standard web request technologies. For example, using <a href="https://curl.haxx.se/">curl</a>:
+    <div id="request">
+        <pre id="curl_1"></pre>
+    </div>
+    </p>
+    <script>document.getElementById("curl_1").innerHTML = "curl " + url + " -H 'Connection: keep-alive' -d \'{\"text\": \"This is an example text string.\", \"probability_threshold\":\"0.5\",\"topic_threshold\":\"0.3\", \"request_id\":\"example_id10\"}\' --compressed" </script>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+<div class="background">
+
+<div class="clientBox">
+    <h2>Client</h2>
+
+    <p class="side">
+        <label>probability_threshold:</label>
+        <input id="probability" type="number" step=".1" min="0" max="1" size="4"></input>
+        <br>
+        <label>topic_threshold:    </label>
+        <input id="topic_threshold" type="number" step=".1" min="0", size="4"></input>
+        <br>
+        <label>request_id:         </label>
+        <input id="request_id"></input>
+    </p>
+
+    <p class="side">
+        Enter some text you want to find terms for in the box below:<br/>
+        <textarea rows="24" cols="70" id="txt" type="text" placeholder="text to tag"></textarea>
+        <br/>
+        <button onclick="doit();">Run Service</button>
+    </p>
+
+</div>
+<div class="clientBox">
+    <h2 class="returnBox">
+        <h2 id="return">Return Data &nbsp<img id="loading" src="static/media/ajax-loader.gif"></h2>
+    </h2>
+    <div class="return">
+        <pre id="returnData"></pre>
+    </div>
+</div>
+</div>
+<footer>
+    <p>If you find this service useful, please edit <a href="https://wiki.jsc.nasa.gov/fod/index.php/TDD_Automated_Tagger#Applications">this wiki page</a> to detail how you are using it. <br>
+    For questions, contact <a href = "mailto: anthony.r.buonomo@nasa.gov">anthony.r.buonomo@nasa.gov</a> or <a href = "mailto: brian.a.thomas@nasa.gov">brian.a.thomas@nasa.gov</a>.</p>
+</footer>
+</body></html>

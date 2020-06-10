@@ -1,0 +1,9 @@
+{
+    "text": [
+        "Astronauts go on space walks.",
+        "Basalt rocks and minerals are on earth."
+    ], 
+    "probability_threshold":"0.6",
+    "topic_threshold":"0.9", 
+    "request_id":"example_id10"
+}
