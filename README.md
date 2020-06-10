@@ -1,6 +1,6 @@
 # OCIO STI Concept Tagging Service
 
-An API for exposing models created with [STI concept training](https://https://developer.nasa.gov/DataSquad/classifier_scripts). If you are using this service or deploying your own version, please edit [this wiki page](https://wiki.jsc.nasa.gov/fod/index.php/TDD_Automated_Tagger#Applications) to include your application. Thank you!
+An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training).  
 
 ## Index
 1. [Using Endpoint](#using-endpoint)

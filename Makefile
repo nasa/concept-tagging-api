@@ -1,7 +1,8 @@
 .PHONY: tests help service
 .DEFAULT_GOAL := help
 
-BUCKET = hq-ocio-ci-bigdata/home/DataSquad/classifier_scripts/
+BUCKET=hq-ocio-ci-bigdata/home/DataSquad/classifier_scripts/
+DOCKER_REGISTRY=storage.analytics.nasa.gov/datasquad
 PROFILE = moderate
 IMAGE_NAME:= concept_tagging_service
 GIT_REMOTE=origin
@@ -12,8 +13,7 @@ DOCKERFILE_NAME=Dockerfile
 ## Install requirements to local python environment
 requirements:
 	pip install -r requirements.txt; \
-	pip install git+https://developer.nasa.gov/DataSquad/classifier_scripts.git@1.0.0#egg=dsconcept || \
-    pip install git+https://gitlab.appdat.app/imp/sti/data-tagger/concept-tagger-training@1.0.0#egg=dsconcept; \
+	pip install git+https://github.com/nasa/concept-tagging-training.git@v1.0.3-open_source_release#egg=dsconcept || \
     python -m spacy download en_core_web_sm
 
 ## Run test coverage with nosetests
@@ -31,7 +31,7 @@ examples:
 ## Download dsconcept library for dockerfile build
 get-dsconcept: ./classifier_scripts
 ./classifier_scripts:
-	git clone --branch v1.0.2 --depth 1 https://developer.nasa.gov/DataSquad/classifier_scripts.git
+	git clone --branch v1.0.3-open_source_release --depth 1 https://github.com/nasa/concept-tagging-training.git
 
 ## Build docker image for service, automatically labeling image with link to most recent commit. 
 ## Choose which Dockerfile to use with DOCKERFILE_NAME variable. The default requires you have downloaded the classifier_scripts library.
@@ -53,16 +53,16 @@ build: ./classifier_scripts
 ## Push the docker image to storage.analytics.nasa.gov
 push:
 	export VERSION=$$(python version.py); \
-	docker tag $(IMAGE_NAME):$$VERSION storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):$$VERSION; \
-	docker tag $(IMAGE_NAME):$$VERSION storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):latest; \
-	docker push storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):$$VERSION; \
-	docker push storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):latest
+	docker tag $(IMAGE_NAME):$$VERSION $(DOCKER_REGISTRY)/$(IMAGE_NAME):$$VERSION; \
+	docker tag $(IMAGE_NAME):$$VERSION $(DOCKER_REGISTRY)/$(IMAGE_NAME):latest; \
+	docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME):$$VERSION; \
+	docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME):latest
 
 ## Push docker image to storage.analytics.nasa.gov as stable version
 push-stable:
 	export VERSION=$$(python version.py); \
-	docker tag $(IMAGE_NAME):$$VERSION storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):stable; \
-	docker push storage.analytics.nasa.gov/datasquad/$(IMAGE_NAME):stable
+	docker tag $(IMAGE_NAME):$$VERSION $(DOCKER_REGISTRY)/$(IMAGE_NAME):stable; \
+	docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME):stable
 
 ## Run the service using docker
 service:
