@@ -1,6 +1,6 @@
 # OCIO STI Concept Tagging Service
 
-An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training).  
+An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training). This project was written about [here](https://strategy.data.gov/proof-points/2019/05/28/improving-data-access-and-data-man) for the Federal Data Strategy Incubator Project.
 
 ## Index
 1. [Using Endpoint](#using-endpoint)
