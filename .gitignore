@@ -4,6 +4,7 @@ classifier_scripts/*
 classifier_scripts
 classifier_scripts-*
 *.txt
+!requirements.txt
 !docs/*.txt
 sti_tagger.zip
 *.h5
