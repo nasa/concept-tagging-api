@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The latest version comes first.
 - The release date of each version is displayed.
 
-### Types of changes
+### All Entries Sould be Under One of These Types of changes
 - <b>Added</b> for new features.
 - <b>Changed</b> for changes in existing functionality.
 - <b>Deprecated</b> for soon-to-be removed features.
