@@ -49,19 +49,14 @@ You will then receive a response like that [here](docs/multiple_response.json). 
 
 ## Running Your Own Instance
 ### Installation
-For most people, the simplest installation entails [pulling the docker image](#pull-docker-image), [downloading the models without bucket access](#without-bucket-access), [running the docker container](#using-docker).
+For most people, the simplest installation entails [building the docker image](#build-docker-image), [downloading the models](#downloading-models), and [running the docker container](#using-docker).
 
-#### Pull Docker Image
-If you are on the NASA network, you should be able to pull a stable API image:
-```bash
-docker pull storage.analytics.nasa.gov/datasquad/concept_tagging_service:stable
-```
 
 #### Build Docker Image
 First, clone this repository and enter its root.
 Now, you can build the image with:
 ```
-docker build -t concept_tagging_service:example .
+docker build -t concept_tagging_api:example .
 ```
 \* Developers should look at the `make build` command in the [Makefile](Makefile). It has an automated process for tagging the image with useful metadata.
 
@@ -78,20 +73,10 @@ Now install the requirements with:
 make requirements
 ```
 
-
 ### Downloading Models
 Then, you need to download the machine learning models upon which the service relies. 
 
-#### With Bucket Access
-If you have access to the `hq-ocio-ci-bigdata`, you should be able to do this one of the [Makefile](Makefile) commands. You can see the different models at `s3://hq-ocio-ci-bigdata/home/DataSquad/classifier_scripts/models/`. Let's say you want the `10_23_2019` models. You would then use:
-```
-make sync_models_from_s3 EXPERIMENT_NAME=10_23_2019 PROFILE=my_aws_profile
-```
-This command requires awscli. Substitute `my_aws_profile` with whatever aws profile has access to the bucket.
-This downloads the models and places them in the appropriate directory to work with the tagging API.
-
-#### Without Bucket Access
-If you do not have access to the `hq-ocio-ci-bigdata`, then contact [anthony.r.buonomo@nasa.gov](mailto:anthony.r.buonomo@nasa.gov) or [brian.a.thomas@nasa.gov](mailto:brian.a.thomas@nasa.gov). You will likely be provided with a zipped file which contains all of the models. Now, to get the models in the right place and unzip:
+You can find zipped file which contains all of the models [here](https://data.nasa.gov/docs/datasets/public/concept_tagging_models/10_23_2019.zip). Now, to get the models in the right place and unzip:
 ```bash
 mkdir models
 mv <YOUR_ZIPPED_MODELS_NAME>.zip models
@@ -103,14 +88,14 @@ unzip <YOUR_ZIPPED_MODELS_NAME>.zip
 
 #### Using Docker
 With the docker image and model files in place, you can now run the service with a simple docker command. In the below command be sure to:
- 1. Substitute `concept_tagging_service:example` for the name of your image.
+ 1. Substitute `concept_tagging_api:example` for the name of your image.
  2. Substitute `$(pwd)/models/10_23_2019` to the path to your models directory. 
  3. Substitute `5001` with the port on your local machine from which you wish to access the API.
 ```
 docker run -it \
     -p 5001:5000 \
     -v $(pwd)/models/10_23_2019:/home/service/models/experiment \
-    concept_tagging_service:example
+    concept_tagging_api:example
 ```
 
 Note that you you may experience permission errors when you start the container. To resolve this issue, set the user and group of your `models` directory to 999. This is the uid for the user 
@@ -121,7 +106,7 @@ The entrypoint to the docker image is [gunicorn](https://docs.gunicorn.org/en/st
 docker run -it \
     -p 5001:5000 \
     -v $(pwd)/models/10_23_2019:/home/service/models/experiment \
-    concept_tagging_service:example --timeout 9000 
+    concept_tagging_api:example --timeout 9000 
 ```
 See [here](https://docs.gunicorn.org/en/stable/design.html#async-workers) for more information about design considerations for these gunicorn settings.
 

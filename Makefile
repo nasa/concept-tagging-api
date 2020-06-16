@@ -1,19 +1,20 @@
 .PHONY: tests help service
 .DEFAULT_GOAL := help
 
-BUCKET=hq-ocio-ci-bigdata/home/DataSquad/classifier_scripts/
-DOCKER_REGISTRY=storage.analytics.nasa.gov/datasquad
-PROFILE = moderate
-IMAGE_NAME:= concept_tagging_service
+BUCKET=your-bucket-name/path/to/your/project/dir
+DOCKER_REGISTRY=your-docker-registry.com/your-namespace
+PROFILE=default
+IMAGE_NAME=concept_tagging_api
 GIT_REMOTE=origin
 MODELS_DIR=models
 EXPERIMENT_NAME=test
 DOCKERFILE_NAME=Dockerfile
+MODELS_URL=https://data.nasa.gov/docs/datasets/public/concept_tagging_models/10_23_2019.zip
 
 ## Install requirements to local python environment
 requirements:
 	pip install -r requirements.txt; \
-	pip install git+https://github.com/nasa/concept-tagging-training.git@v1.0.3-open_source_release#egg=dsconcept || \
+	pip install git+https://github.com/nasa/concept-tagging-training.git@v1.0.3-open_source_release#egg=dsconcept \
     python -m spacy download en_core_web_sm
 
 ## Run test coverage with nosetests
@@ -68,7 +69,7 @@ push-stable:
 service:
 	@echo $(MODELS_DIR)/$(EXPERIMENT_NAME)
 	export VERSION=$$(python version.py); \
-	docker run -it\
+	docker run -it \
 		-p 5001:5000 \
 		-v $$(pwd)/$(MODELS_DIR)/$(EXPERIMENT_NAME):/home/service/models/experiment \
 		$(IMAGE_NAME):$$VERSION
@@ -77,7 +78,6 @@ service:
 service-local:
 	 export MODELS_DIR=$(MODELS_DIR)/$(EXPERIMENT_NAME); \
 	 python service/app.py
-
 
 TXT_DIR=$(MODELS_DIR)/$(EXPERIMENT_NAME)/tags_txts/
 ## Get txt files of keyword tags
@@ -95,6 +95,11 @@ else
 	aws s3 sync s3://$(BUCKET)models/$(EXPERIMENT_NAME) models/$(EXPERIMENT_NAME) --profile $(PROFILE)
 endif
 
+
+## Download models from data.nasa.gov
+get-models:
+	wget -O models/models.zip $(MODELS_URL); \
+	cd models && unzip models.zip
 
 ## zip files for service docker image for deployment to Elastic Beanstalk
 zip-for-ebs: ./classifier_scripts

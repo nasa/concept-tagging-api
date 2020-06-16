@@ -2,6 +2,8 @@
 *.zip
 classifier_scripts/*
 classifier_scripts
+concept-tagging-training/*
+concept-tagging-training
 classifier_scripts-*
 *.txt
 !docs/*.txt
@@ -26,6 +28,7 @@ data/pmc/*
 bert_models/*
 bert_models/*
 models/*
+!models/.gitkeep
 __pycache__/*
 in_data/*
 new_data/*
