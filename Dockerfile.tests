@@ -5,8 +5,7 @@ USER root
 COPY requirements.txt /home/requirements.txt
 RUN pip install -r /home/requirements.txt
 ARG cachebust=2
-RUN pip install git+https://developer.nasa.gov/DataSquad/classifier_scripts.git@v1.0.2
-# TODO: reinclude or githlab?
+RUN pip install git+https://github.com/nasa/concept-tagging-training.git@v1.0.3-open_source_release
 RUN python -m spacy download en_core_web_sm
 
 # Include src and set permissions
@@ -39,5 +38,6 @@ RUN chown -R 999:999 /home/service
 USER appuser
 WORKDIR /home/service
 
+EXPOSE 5000
 ENTRYPOINT ["gunicorn", "app:app", "-b", " 0.0.0.0:5000"]
 CMD ["--timeout", "1200"]
