@@ -12,7 +12,7 @@ Releases page is <a href="https://github.com/nasa/concept-tagging-api/releases">
 ## [v5.0.10] - 2020-06-16
 
 
-## [v5.0.9-open_source_releas0] - 2020-06-10
+## [v5.0.9-open_source_release] - 2020-06-10
 #### Added:
 Original open-source release of this repository on github.com/nasa after having received SRA (software release authority) approval.
 
