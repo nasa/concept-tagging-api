@@ -5,7 +5,6 @@ USER root
 COPY requirements.txt /home/requirements.txt
 RUN pip install -r /home/requirements.txt
 ARG cachebust=2
-COPY classifier_scripts /home/classifier_scripts
 RUN pip install git+https://github.com/nasa/concept-tagging-training.git@v1.0.3-open_source_release
 RUN python -m spacy download en_core_web_sm
 
