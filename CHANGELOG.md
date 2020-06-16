@@ -39,5 +39,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - <b>Fixed</b> for any bug fixes.
 - <b>Security</b> in case of vulnerabilities.
 
-Google technical writer Sarah Maddox <a href="https://ffeathers.wordpress.com/2017/08/19/how-to-write-release-notes/"gave the following advice</a> about release notes:
+Google technical writer Sarah Maddox <a href="https://ffeathers.wordpress.com/2017/08/19/how-to-write-release-notes/">gave the following advice</a> about release notes:
 `“The most important function of release notes is to let customers know that something has changed in the product, particularly when that something may affect the way the customer uses the product.”`</a>
