@@ -99,7 +99,7 @@ get-models:
 zip-for-ebs: ./classifier_scripts
 	zip -r --include 'service/*' 'classifier_scripts/*' \
 		'requirements.txt' '.dockerignore' 'Dockerfile' \
-		'Dockerrun.aws.json' @ sti_tagger.zip .
+		'Dockerrun.aws.json' '.ebextensions/*' @ sti_tagger.zip .
 
 help:
 	@echo "$$(tput bold)Available rules:$$(tput sgr0)"
