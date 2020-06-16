@@ -1,9 +1,6 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
 Releases page is <a href="https://github.com/nasa/concept-tagging-api/releases">here</a>.
 
 ## [Unreleased]
@@ -22,6 +19,10 @@ Original open-source release of this repository on github.com/nasa after having 
 
 
 # Guidelines for ChangeLog Entries
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 ### Guiding Principles
 - Changelogs are for humans, not machines.
 - There should be an entry for every single version.
