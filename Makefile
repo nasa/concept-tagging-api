@@ -96,10 +96,10 @@ get-models:
 	cd models && unzip models.zip
 
 ## zip files for service docker image for deployment to Elastic Beanstalk
-zip-for-ebs: ./classifier_scripts
+zip-for-ebs:
 	zip -r --include 'service/*' 'classifier_scripts/*' \
 		'requirements.txt' '.dockerignore' 'Dockerfile' \
-		'Dockerrun.aws.json' 'models/$(EXPERIMENT_NAME)/*' @ sti_tagger.zip .
+		'Dockerrun.aws.json' '.ebextensions/*' @ sti_tagger.zip .
 
 help:
 	@echo "$$(tput bold)Available rules:$$(tput sgr0)"
