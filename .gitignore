@@ -6,6 +6,7 @@ concept-tagging-training/*
 concept-tagging-training
 classifier_scripts-*
 *.txt
+!requirements.txt
 !docs/*.txt
 sti_tagger.zip
 *.h5
