@@ -29,16 +29,10 @@ examples:
 	@echo "curl -X POST -H "Content-Type: application/json" -d @example.json http://0.0.0.0:5005/findterms/"
 
 
-## Download dsconcept library for dockerfile build
-get-dsconcept: ./classifier_scripts
-./classifier_scripts:
-	git clone --branch v1.0.3-open_source_release --depth 1 https://github.com/nasa/concept-tagging-training.git
-
-## Build docker image for service, automatically labeling image with link to most recent commit. 
-## Choose which Dockerfile to use with DOCKERFILE_NAME variable. The default requires you have downloaded the classifier_scripts library.
-## Dockerfile.devconnect requires a connection to developer.nasa.gov wherever the image is built.
+## Build docker image for service, automatically labeling image with link to most recent commit.
+## Choose which Dockerfile to use with DOCKERFILE_NAME variable. The default requires you have downloaded the concept_tagging_training library.
 ## Dockerfile.tests includes testing in the docker build process.
-build: ./classifier_scripts
+build:
 	export COMMIT=$$(git log -1 --format=%H); \
 	export REPO_URL=$$(git remote get-url $(GIT_REMOTE)); \
 	export REPO_DIR=$$(dirname $$REPO_URL); \
