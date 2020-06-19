@@ -26,6 +26,7 @@ data2/*
 data/new_sti/*
 data/sti/*
 data/pmc/*
+!models/test/*
 bert_models/*
 bert_models/*
 models/*
