@@ -26,12 +26,15 @@ ALLOWED_FIND_TERMS_FIELDS = [
 
 SERVICE_VERSION = os.environ["VERSION"] if "VERSION" in os.environ else "unspecified"
 
-if PRELOAD in os.environ:
+if "PRELOAD" in os.environ:
     if os.environ["PRELOAD"].lower().strip() == "true":
         PRELOAD = True
         LOG.info("Preloading the models.")
     else:
         PRELOAD = False
+else:
+    LOG.info("Not PRELOAD env variable found. Default to PRELOAD=True")
+    PRELOAD = True
 
 INTERFACE_VERSION = "2.0.0"
 SERVICE_ROOT_PATH = ""

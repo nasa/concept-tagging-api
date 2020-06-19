@@ -29,7 +29,10 @@ RUN chown -R 999:999 /home/service
 USER appuser
 WORKDIR /home/service
 
-ARG PRELOAD=True
+ENV PRELOAD=True 
+# Change PRELOAD to False to load models for each request.
+# Saves RAM with little effect on bulk requests
+# but a large effect on small requests.
 EXPOSE 5000
 ENTRYPOINT ["gunicorn", "app:app", "-b", " 0.0.0.0:5000"]
 CMD ["--timeout", "1200"]
