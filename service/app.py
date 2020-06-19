@@ -94,9 +94,6 @@ def init():
     LOG.info('Ready for requests.')
 
 
-init()
-
-
 def classify_sti(texts, cat_threshold, kwd_threshold, no_categories):
     if type(texts) == str:
         texts = [texts]
@@ -161,6 +158,10 @@ def _validate(data):
             LOG.warning(f'"{key}" not in {ALLOWED_FIND_TERMS_FIELDS}')
             return False
     return True
+
+
+# Load all of the data here.
+init()
 
 
 @app.route(f"{SERVICE_ROOT_PATH}/")
