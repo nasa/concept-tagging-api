@@ -26,10 +26,10 @@ data2/*
 data/new_sti/*
 data/sti/*
 data/pmc/*
-!models/test/*
 bert_models/*
 bert_models/*
 models/*
+!models/test/*
 !models/.gitkeep
 __pycache__/*
 in_data/*

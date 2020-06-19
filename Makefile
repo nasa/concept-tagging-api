@@ -11,6 +11,7 @@ EXPERIMENT_NAME=test
 DOCKERFILE_NAME=Dockerfile
 MODELS_URL=https://data.nasa.gov/docs/datasets/public/concept_tagging_models/10_23_2019.zip
 PRELOAD=True
+PORT=5001
 
 ## Install requirements to local python environment
 requirements:
@@ -66,7 +67,7 @@ service:
 	@echo $(MODELS_DIR)/$(EXPERIMENT_NAME)
 	export VERSION=$$(python version.py); \
 	docker run -it \
-		-p 5001:5000 \
+		-p $(PORT):5000 \
 		-v $$(pwd)/$(MODELS_DIR)/$(EXPERIMENT_NAME):/home/service/models/experiment \
 		-e PRELOAD=$(PRELOAD) \
 		$(IMAGE_NAME):$$VERSION
