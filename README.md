@@ -1,6 +1,10 @@
 # OCIO STI Concept Tagging Service
 
-An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training). This project was written about [here](https://strategy.data.gov/proof-points/2019/05/28/improving-data-access-and-data-management-artificial-intelligence-generated-metadata-tags-at-nasa/) for the Federal Data Strategy Incubator Project.
+An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training). This project was written about [here](https://strategy.data.gov/proof-points/2019/05/28/improving-data-access-and-data-management-artificial-intelligence-generated-metadata-tags-at-nasa/) for the Federal Data Strategy Incubator Project. 
+
+### What is Concept Tagging
+By concept tagging, we mean you can supply text, for example:
+`Volcanic activity, or volcanism, has played a significant role in the geologic evolution of Mars.[2] Scientists have known since the Mariner 9 mission in 1972 that volcanic features cover large portions of the Martian surface.` and get back predicted keywords, like `volcanology, mars surface, and structural properties`, as well as topics, like `space sciences, geosciences`, from a standardized list of several thousand NASA concepts with a probability score for each prediction.
 
 ## Index
 1. [Using Endpoint](#using-endpoint)
