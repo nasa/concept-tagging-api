@@ -94,6 +94,9 @@ def init():
     LOG.info('Ready for requests.')
 
 
+init()
+
+
 def classify_sti(texts, cat_threshold, kwd_threshold, no_categories):
     if type(texts) == str:
         texts = [texts]
