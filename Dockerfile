@@ -29,6 +29,7 @@ RUN chown -R 999:999 /home/service
 USER appuser
 WORKDIR /home/service
 
+ARG PRELOAD=True
 EXPOSE 5000
 ENTRYPOINT ["gunicorn", "app:app", "-b", " 0.0.0.0:5000"]
 CMD ["--timeout", "1200"]

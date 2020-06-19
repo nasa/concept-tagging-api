@@ -29,6 +29,7 @@ examples:
 	@echo "curl -X POST -H "Content-Type: application/json" -d @example.json http://0.0.0.0:5005/findterms/"
 
 
+PRELOAD=True
 ## Build docker image for service, automatically labeling image with link to most recent commit.
 ## Choose which Dockerfile to use with DOCKERFILE_NAME variable. The default requires you have downloaded the concept_tagging_training library.
 ## Dockerfile.tests includes testing in the docker build process.
@@ -43,6 +44,7 @@ build:
 	docker build -t $(IMAGE_NAME):$$VERSION \
 		-f $(DOCKERFILE_NAME) \
 		--build-arg GIT_URL=$$GIT_LOC \
+		--build-arg PRELOAD=$(PRELOAD) \
 		--build-arg VERSION=$$VERSION .
 
 ## Push the docker image to storage.analytics.nasa.gov
