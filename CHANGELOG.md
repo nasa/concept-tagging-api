@@ -7,9 +7,12 @@ Releases page is <a href="https://github.com/nasa/concept-tagging-api/releases">
 
 
 ## [v5.0.11] - 2020-06-16
+#### Fixed:
+Fixed various links to point to the open source code respositories instead of internal NASA repositories.
 
-
-## [v5.0.10] - 2020-06-16
+#### Added:
+ - Make command to download models from data.nasa.gov.
+ - .ebsextensions command for downloading models for elastic beanstalk deployment
 
 
 ## [v5.0.9-open_source_release] - 2020-06-10
