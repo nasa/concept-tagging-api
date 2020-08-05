@@ -87,6 +87,7 @@ mv <YOUR_ZIPPED_MODELS_NAME>.zip models
 cd models
 unzip <YOUR_ZIPPED_MODELS_NAME>.zip
 ```
+Alternatively, the models can also be downloaded from data.nasa.gov where they are named <a href='https://data.nasa.gov/Software/STI-Tagging-Models/jd6d-mr3p'>STI Tagging Models</a>. However, they download slower from that location.
 
 ### Running Service
 
