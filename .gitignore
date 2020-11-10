@@ -29,6 +29,7 @@ data/pmc/*
 bert_models/*
 bert_models/*
 models/*
+!models/test
 !models/.gitkeep
 __pycache__/*
 in_data/*

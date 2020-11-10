@@ -1,0 +1,9 @@
+weights:  # assign weights for term types specified in process section
+  NOUN: 1
+  PROPN: 1
+  NOUN_CHUNK: 1
+  ENT: 1
+  ACRONYM: 1
+min_feature_occurrence: 10
+max_feature_occurrence: 0.9
+min_concept_occurrence: 5

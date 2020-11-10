@@ -25,6 +25,17 @@ ALLOWED_FIND_TERMS_FIELDS = [
 ]
 
 SERVICE_VERSION = os.environ["VERSION"] if "VERSION" in os.environ else "unspecified"
+
+if "PRELOAD" in os.environ:
+    if os.environ["PRELOAD"].lower().strip() == "true":
+        PRELOAD = True
+        LOG.info("Preloading the models.")
+    else:
+        PRELOAD = False
+else:
+    LOG.info("Not PRELOAD env variable found. Default to PRELOAD=True")
+    PRELOAD = True
+
 INTERFACE_VERSION = "2.0.0"
 SERVICE_ROOT_PATH = ""
 
@@ -36,7 +47,7 @@ app.config.update(
         IN_CAT_RAW2LEMMA=f"{app.config['MODELS_DIR']}/cat_raw2lemma.json",
         IN_VECTORIZER=f"{app.config['MODELS_DIR']}/vectorizer.jbl",
         STI_CONFIG=f"{app.config['MODELS_DIR']}/config.yml",
-        PRELOAD=False,  # TODO: visible configuration for preload option
+        PRELOAD=PRELOAD,  # TODO: visible configuration for preload option
         LOC_DICT=Path("loc_dict.jbl"),
     )
 )
@@ -147,6 +158,10 @@ def _validate(data):
             LOG.warning(f'"{key}" not in {ALLOWED_FIND_TERMS_FIELDS}')
             return False
     return True
+
+
+# Load all of the data here.
+init()
 
 
 @app.route(f"{SERVICE_ROOT_PATH}/")

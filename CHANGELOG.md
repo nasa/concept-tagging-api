@@ -5,6 +5,12 @@ Releases page is <a href="https://github.com/nasa/concept-tagging-api/releases">
 
 ## [Unreleased]
 
+## [v5.0.12] - 2020-06-16
+#### Fixed:
+Models are now loaded before the API starts.
+
+#### Added:
+Added option to preload the models or load them for each request.
 
 ## [v5.0.11] - 2020-06-16
 #### Fixed:

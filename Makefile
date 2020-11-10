@@ -10,6 +10,8 @@ MODELS_DIR=models
 EXPERIMENT_NAME=test
 DOCKERFILE_NAME=Dockerfile
 MODELS_URL=https://data.nasa.gov/docs/datasets/public/concept_tagging_models/10_23_2019.zip
+PRELOAD=True
+PORT=5001
 
 ## Install requirements to local python environment
 requirements:
@@ -27,6 +29,7 @@ tests:
 
 examples:
 	@echo "curl -X POST -H "Content-Type: application/json" -d @example.json http://0.0.0.0:5005/findterms/"
+
 
 
 ## Build docker image for service, automatically labeling image with link to most recent commit.
@@ -64,8 +67,9 @@ service:
 	@echo $(MODELS_DIR)/$(EXPERIMENT_NAME)
 	export VERSION=$$(python version.py); \
 	docker run -it \
-		-p 5001:5000 \
+		-p $(PORT):5000 \
 		-v $$(pwd)/$(MODELS_DIR)/$(EXPERIMENT_NAME):/home/service/models/experiment \
+		-e PRELOAD=$(PRELOAD) \
 		$(IMAGE_NAME):$$VERSION
 
 ## Run the service locally without docker
