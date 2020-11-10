@@ -115,6 +115,10 @@ docker run -it \
 ```
 See [here](https://docs.gunicorn.org/en/stable/design.html#async-workers) for more information about design considerations for these gunicorn settings.
 
+#### Pitfalls & Gotchas to Remeber
+- If you run this on a cloud service and run an upgrade on everything out of date for security reasons, you may need to run `sudo service docker stop`
+and then `sudo service docker start` to get docker going again. You'll also have to find the docker container that you had last running and restart it.
+- If you run the docker container as described above, remember to try the URL of your service with the proper port at the end of the URL. 
 
 #### Using Local Python
 With the requirements installed and the model files in place, you can now run the service with python locally. 
