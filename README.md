@@ -1,6 +1,6 @@
 # OCIO STI Concept Tagging Service
 
-An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training). This project was written about [here](https://strategy.data.gov/proof-points/2019/05/28/improving-data-access-and-data-management-artificial-intelligence-generated-metadata-tags-at-nasa/) for the Federal Data Strategy Incubator Project. A running version of this API may be found [here](http://ec2-100-25-26-114.compute-1.amazonaws.com:5001/), however, this is a temporary instance for demos only and it may not be up long-term.
+An API for exposing models created with [STI concept training](https://github.com/nasa/concept-tagging-training). This project was written about [here](https://strategy.data.gov/proof-points/2019/05/28/improving-data-access-and-data-management-artificial-intelligence-generated-metadata-tags-at-nasa/) for the Federal Data Strategy Incubator Project. A running version of this API may be found [here](http://ec2-100-25-26-114.compute-1.amazonaws.com:5001/), however, this is a temporary instance for demos purposes. It may not be available long-term. Please do not use it in production or at scale.
 
 ### What is Concept Tagging
 By concept tagging, we mean you can supply text, for example:
