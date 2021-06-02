@@ -1,6 +1,6 @@
 Flask==1.1.1
 requests==2.20.0
-urllib3==1.24.2
+urllib3==1.26.5
 PyYAML==5.1.2
 setuptools-scm==3.3.3
 gevent==1.4.0
