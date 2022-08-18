@@ -123,6 +123,8 @@ and then `sudo service docker start` to get docker going again. You'll also have
 #### Using Local Python
 With the requirements installed and the model files in place, you can now run the service with python locally. 
 In the command below, substitute `models/test` with the path to your models directory. For example, if you followed the example from [With Bucket Access](#with-bucket-access), it will be `models/10_23_2019`.
+
+If running locally you may get a permissions error as in the above container example - in this case, for example of a unix ubuntu EC2 on AWS user and group would need to be set to ubuntu.
 ```
 export MODELS_DIR=models/test; \
 python service/app.py
