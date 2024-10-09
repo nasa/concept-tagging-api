@@ -127,4 +127,4 @@ In the command below, substitute `models/test` with the path to your models dire
 export MODELS_DIR=models/test; \
 python service/app.py
 ```
-#### If you were a part of the legacy concept tagger api development team and need access to test server that's no longer available as of 11/9/23, please email us [here](mailto:nasa-data@lists.arc.nasa.gov).
+#### If you were a part of the legacy concept tagger api development team and need access to test server that's no longer available as of 11/9/23, please email us [here](mailto:hq-open-innovation@mail.nasa.gov).
