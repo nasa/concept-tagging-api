@@ -1,5 +1,5 @@
 Flask==1.1.1
-requests==2.20.0
+requests==2.31.0
 urllib3==1.26.5
 PyYAML==5.4
 setuptools-scm==3.3.3
